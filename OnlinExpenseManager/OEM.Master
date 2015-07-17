@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OEM.master.cs" Inherits="OnlinExpenseManager.OEM" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>E-OM|Online Expense Manager</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+</head>
+<body>
+    <nav class="nav navbar-default">
+        <a href="/home.aspx" class="navbar-brand">Home</a>
+        <ul class="nav navbar-nav">
+            <asp:PlaceHolder ID="plhPublic" runat="server">
+                <li><a href="/register.aspx">Register</a></li>
+                <li><a href="/login.aspx">Log In</a></li>
+            </asp:PlaceHolder>
+            <asp:PlaceHolder ID="plhPrivate" runat="server">
+                <li><a href="/expense.aspx">Expenses</a></li>
+                <li><a href="/accounts.aspx">Manage your accounts</a></li>
+                <li><a href="/reports.aspx">View your reports</a></li>
+                <li><a href="/logout.aspx">Log Out</a></li>
+            </asp:PlaceHolder>
+        </ul>
+    </nav>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer class="alert alert-info">
+        @2015 - E-OM - Online Expense Manager
+    </footer>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!--jQuery delete confirmation.  must go after main jquery link-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery("a").filter(function () {
+                return this.innerHTML.indexOf("Delete") == 0;
+            }).click(function () {
+                return confirm("Are you sure you want to delete this record?");
+            });
+        });
+
+    </script>
+</body>
+</html>
