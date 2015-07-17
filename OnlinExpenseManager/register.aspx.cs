@@ -52,14 +52,27 @@ namespace OnlinExpenseManager
                         u.LName = txtLName.Text;
                         u.Email = txtEmail.Text;
                         u.Phone = txtPhone.Text;
-                        a.CreditBalance = Convert.ToDouble(txtCredit.Text);
-                        a.DebitBalance = Convert.ToDouble(txtDebit.Text);
-                        
+
                         //Add user and account to database
                         db.Users.Add(u);
+
+                        //run the insert for Users table
+                        db.SaveChanges();
+
+                        a.CreditBalance = Convert.ToDouble(txtCredit.Text);
+                        a.DebitBalance = Convert.ToDouble(txtDebit.Text);
+
+                        
+                        User u1 = (from objU in db.Users
+                             where objU.Email == txtEmail.Text
+                             select objU).FirstOrDefault();
+
+                        a.UserID = u1.UserID;
+
+                        //Add account to database
                         db.Accounts.Add(a);
 
-                        //run the update or insert
+                        //run the insert for Account table
                         db.SaveChanges();
                     }
                  //redirect to the updated students page

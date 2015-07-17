@@ -2,4 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Welcome<asp:Label ID="lblWelcome" runat="server"></asp:Label></h1>
+    <h3>You can update your Account here and check available balance in your accounts</h3>
+    <div class="banner">
+        <asp:label ID="lblCreditBalance" runat="server" CssClass="col-sm-2" Text="Credit Balance: "></asp:label>
+        <asp:label ID="lblDebitBalance" runat="server" CssClass="col-sm-2" Text="Debit Balance: "></asp:label>
+    </div>
+    <h3>Update your Account</h3>
+    <div class="form-group">
+        <label for="ddlAccountType" class="col-sm-2">Account Type:</label>
+        <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="false">
+            <asp:ListItem Text="Credit" Value="Credit"></asp:ListItem>
+            <asp:ListItem Text="Debit" Value="Debit"></asp:ListItem>
+        </asp:DropDownList>
+    </div>
+    <div class="form-group">
+        <label for="txtAmount" class="col-sm-2">Amount</label>
+        <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
+    </div>
+    <div class="col-sm-offset-2">
+        <asp:Button ID="btnLogin" runat="server" Text="Update Account" CssClass="btn btn-primary"
+            OnClick="btnExpense_Click" />
+    </div>
 </asp:Content>

@@ -4,9 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Enter your express entry below</h1>
+    <h1>Welcome<asp:Label ID="lblWelcome" runat="server"></asp:Label></h1>
+    <h3>Enter your express entry below</h3>
     <h4>All Field Required</h4>
-    <h4><asp:Label ID="welcomUser" runat="server"></asp:Label></h4>
     <div class="form-group">
         <label for="ddlExpense" class="col-sm-2">Expense Catagory:</label>
         <asp:DropDownList ID="ddlExpense" runat="server" AutoPostBack="false">
@@ -24,7 +24,7 @@
     <div class="form-group">
         <label for="ddlAccountType" class="col-sm-2">Account Type:</label>
         <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="false">
-            <asp:ListItem Text="Credit" Value="Crdit"></asp:ListItem>
+            <asp:ListItem Text="Credit" Value="Credit"></asp:ListItem>
             <asp:ListItem Text="Debit" Value="Debit"></asp:ListItem>
         </asp:DropDownList>
     </div>

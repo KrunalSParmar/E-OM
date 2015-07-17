@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//ER Referenses
+using OnlinExpenseManager.Models;
+using System.Web.ModelBinding;
+
 //auth references
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -30,6 +34,20 @@ namespace OnlinExpenseManager
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
+
+                //store UserId in session variable from Users table using Email
+                using (ExpMgmtEntities db = new ExpMgmtEntities())
+                {
+                     User u1 =(from objU in db.Users
+                             where objU.Email == txtUsername.Text
+                             select objU).FirstOrDefault();
+
+                     Int32 uid = u1.UserID;
+                     string name = " "+u1.FName +" "+ u1.LName;
+
+                     Session["UserName"] = uid;
+                     Session["Name"] = name;
+                }
                 Response.Redirect("home.aspx");
             }
             else
