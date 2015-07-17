@@ -22,10 +22,9 @@ namespace OnlinExpenseManager.Models
     
         public int UserID { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
-        public Nullable<int> Phone { get; set; }
+        public string Phone { get; set; }
     
         public virtual ICollection<Account> Accounts { get; set; }
         public virtual ICollection<Expense> Expenses { get; set; }

@@ -12,19 +12,12 @@ namespace OnlinExpenseManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class AspNetUserLogin
     {
-        public Account()
-        {
-            this.Expenses = new HashSet<Expense>();
-        }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+        public string UserId { get; set; }
     
-        public int AccountID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<double> CreditBalance { get; set; }
-        public Nullable<double> DebitBalance { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual ICollection<Expense> Expenses { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

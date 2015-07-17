@@ -11,7 +11,12 @@ namespace OnlinExpenseManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            welcomUser.Text = "Welcome" + Session["Email"];
+        }
 
+        protected void btnExpense_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

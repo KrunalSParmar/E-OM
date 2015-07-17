@@ -12,19 +12,11 @@ namespace OnlinExpenseManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class C__MigrationHistory
     {
-        public Account()
-        {
-            this.Expenses = new HashSet<Expense>();
-        }
-    
-        public int AccountID { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<double> CreditBalance { get; set; }
-        public Nullable<double> DebitBalance { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual ICollection<Expense> Expenses { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

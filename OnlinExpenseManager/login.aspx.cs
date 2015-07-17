@@ -16,14 +16,14 @@ namespace OnlinExpenseManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var userStore = new UserStore<IdentityUser>();
             var userManager = new UserManager<IdentityUser>(userStore);
             var user = userManager.Find(txtUsername.Text, txtPassword.Text);
-
+            
             if (user != null)
             {
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
