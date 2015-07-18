@@ -37,7 +37,7 @@ namespace OnlinExpenseManager
                 ex.ExpType = ddlExpense.SelectedValue;
                 ex.ExpAmount = Convert.ToDouble(txtAmount.Text);
                 ex.UserID = UserName;
-                ex.Date = Convert.ToDateTime(DateTime.Today.ToString("dd/mm/yyyy"));
+                ex.Date = Convert.ToDateTime(DateTime.Today);
                 
                 //Reduce expense amount from equivalent User account
                 if(ddlAccountType.SelectedValue == "Credit")
@@ -60,7 +60,7 @@ namespace OnlinExpenseManager
                 db.Expenses.Add(ex);
                 db.SaveChanges();
                 //redirect to the updated students page
-                Response.Redirect("expense.aspx");
+                Response.Redirect("/user/expense.aspx");
             }
         }
     }

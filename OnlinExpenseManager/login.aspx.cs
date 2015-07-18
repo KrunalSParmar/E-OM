@@ -48,7 +48,8 @@ namespace OnlinExpenseManager
                      Session["UserName"] = uid;
                      Session["Name"] = name;
                 }
-                Response.Redirect("home.aspx");
+                
+                Response.Redirect("/user/expense.aspx");
             }
             else
             {

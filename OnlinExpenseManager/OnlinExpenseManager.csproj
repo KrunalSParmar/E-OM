@@ -124,29 +124,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="accounts.aspx" />
-    <Content Include="expense.aspx" />
+    <Content Include="user\accounts.aspx" />
+    <Content Include="user\expense.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="register.aspx" />
-    <Content Include="reports.aspx" />
+    <Content Include="user\reports.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accounts.aspx.cs">
+    <Compile Include="user\accounts.aspx.cs">
       <DependentUpon>accounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="accounts.aspx.designer.cs">
+    <Compile Include="user\accounts.aspx.designer.cs">
       <DependentUpon>accounts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="expense.aspx.cs">
+    <Compile Include="user\expense.aspx.cs">
       <DependentUpon>expense.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="expense.aspx.designer.cs">
+    <Compile Include="user\expense.aspx.designer.cs">
       <DependentUpon>expense.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -227,11 +227,11 @@
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reports.aspx.cs">
+    <Compile Include="user\reports.aspx.cs">
       <DependentUpon>reports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reports.aspx.designer.cs">
+    <Compile Include="user\reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />

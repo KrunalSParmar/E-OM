@@ -12,6 +12,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
     <nav class="nav navbar-default">
@@ -22,9 +23,9 @@
                 <li><a href="/login.aspx">Log In</a></li>
             </asp:PlaceHolder>
             <asp:PlaceHolder ID="plhPrivate" runat="server">
-                <li><a href="/expense.aspx">Expenses</a></li>
-                <li><a href="/accounts.aspx">Manage your accounts</a></li>
-                <li><a href="/reports.aspx">View your reports</a></li>
+                <li><a href="/user/expense.aspx">Expenses</a></li>
+                <li><a href="/user/accounts.aspx">Manage your accounts</a></li>
+                <li><a href="/user/reports.aspx">View your reports</a></li>
                 <li><a href="/logout.aspx">Log Out</a></li>
             </asp:PlaceHolder>
         </ul>

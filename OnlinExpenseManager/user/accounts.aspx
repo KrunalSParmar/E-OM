@@ -1,12 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OEM.Master" AutoEventWireup="true" CodeBehind="accounts.aspx.cs" Inherits="OnlinExpenseManager.accounts" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Welcome<asp:Label ID="lblWelcome" runat="server"></asp:Label></h1>
     <h3>You can update your Account here and check available balance in your accounts</h3>
-    <div class="banner">
-        <asp:label ID="lblCreditBalance" runat="server" CssClass="col-sm-2" Text="Credit Balance: "></asp:label>
-        <asp:label ID="lblDebitBalance" runat="server" CssClass="col-sm-2" Text="Debit Balance: "></asp:label>
+    <div class="badge" title="Account Info.">
+        <h4 class="">
+            <asp:Label ID="lblCreditBalance" runat="server" Text="Credit Balance: "></asp:Label>
+        </h4>
+        <h4 class="">
+            <asp:Label ID="lblDebitBalance" runat="server" Text="Debit Balance: "></asp:Label>
+        </h4>
     </div>
     <h3>Update your Account</h3>
     <div class="form-group">

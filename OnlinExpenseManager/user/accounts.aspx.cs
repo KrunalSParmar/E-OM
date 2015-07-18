@@ -73,7 +73,7 @@ namespace OnlinExpenseManager
                 //run the update or insert
                 db.SaveChanges();
                 //redirect to the updated students page
-                Response.Redirect("accounts.aspx");
+                Response.Redirect("/user/accounts.aspx");
             }
         }
     }
