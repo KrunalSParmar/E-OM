@@ -45,38 +45,44 @@ namespace OnlinExpenseManager
                 authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
 
                 using (ExpMgmtEntities db = new ExpMgmtEntities())
-                    {
-                        User u = new User();
-                        Account a = new Account();
-                        u.FName = txtFName.Text;
-                        u.LName = txtLName.Text;
-                        u.Email = txtEmail.Text;
-                        u.Phone = txtPhone.Text;
+                {
+                    User u = new User();
+                    Account a = new Account();
+                    u.FName = txtFName.Text;
+                    u.LName = txtLName.Text;
+                    u.Email = txtEmail.Text;
+                    u.Phone = txtPhone.Text;
 
-                        //Add user and account to database
-                        db.Users.Add(u);
+                    //Add user and account to database
+                    db.Users.Add(u);
 
-                        //run the insert for Users table
-                        db.SaveChanges();
+                    //run the insert for Users table
+                    db.SaveChanges();
 
-                        a.CreditBalance = Convert.ToDouble(txtCredit.Text);
-                        a.DebitBalance = Convert.ToDouble(txtDebit.Text);
+                    a.CreditBalance = Convert.ToDouble(txtCredit.Text);
+                    a.DebitBalance = Convert.ToDouble(txtDebit.Text);
 
-                        
-                        User u1 = (from objU in db.Users
-                             where objU.Email == txtEmail.Text
-                             select objU).FirstOrDefault();
 
-                        a.UserID = u1.UserID;
+                    User u1 = (from objU in db.Users
+                               where objU.Email == txtEmail.Text
+                               select objU).FirstOrDefault();
 
-                        //Add account to database
-                        db.Accounts.Add(a);
+                    a.UserID = u1.UserID;
 
-                        //run the insert for Account table
-                        db.SaveChanges();
-                    }
-                 //redirect to the updated students page
-                 Response.Redirect("home.aspx");
+                    //Add account to database
+                    db.Accounts.Add(a);
+
+                    //run the insert for Account table
+                    db.SaveChanges();
+
+                    Int32 uid = u1.UserID;
+                    string name = " " + u1.FName + " " + u1.LName;
+
+                    Session["UserName"] = uid;
+                    Session["Name"] = name;
+                }
+                //redirect to the updated students page
+                Response.Redirect("/user/expense.aspx");
             }
             else
             {

@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label for="txtPhone" class="col-sm-2">Phone:</label>
-        <asp:textbox id="txtPhone" runat="server" />
+        <asp:textbox id="txtPhone" runat="server" MaxLength="10" />
     </div>
     <div class="form-group">
         <label for="txtCredit" class="col-sm-2">Credit Account Balance:</label>
