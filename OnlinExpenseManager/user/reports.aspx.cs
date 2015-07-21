@@ -14,11 +14,11 @@ namespace OnlinExpenseManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            getExps(null, null);
+            getExps(null, null, ddlAccountType.SelectedValue);
         }
 
 
-        private void getExps(string startdate, string enddate)
+        private void getExps(string startdate, string enddate, string acctype)
         {
 
             Int32 Uid = (Int32)(Session["UserName"]);
@@ -26,12 +26,13 @@ namespace OnlinExpenseManager
             {
                 Expense ex = new Expense();
 
-                if ((startdate != "") && (enddate != ""))
+                if ((startdate != "") && (enddate != "") && (acctype != ""))
                 {
                     DateTime sd = Convert.ToDateTime(startdate);
                     DateTime ed = Convert.ToDateTime(enddate);
+                    string at = ddlAccountType.SelectedValue;
                     var Exp = from e in db.Expenses
-                              where e.UserID == Uid && e.Date >= sd && e.Date <= ed
+                              where e.UserID == Uid && e.Date >= sd && e.Date <= ed && e.AccountType == at
                               select new { e.ExpID, e.ExpType, e.Date, e.ExpAmount, e.AccountType };
                     if (Exp != null)
                     {
@@ -66,17 +67,23 @@ namespace OnlinExpenseManager
         {
             string startDate = txtStartDate.Text;
             string endDate = txtEndDate.Text;
+            string acctype;
+            if (ddlAccountType.SelectedValue == "All Expense")
+            {
+                acctype = "";
+            }
+            else
+            {
+                acctype = ddlAccountType.SelectedValue;
+            }
             lblReportType.Text = "Date Report";
 
-            getExps(startDate, endDate);
+            getExps(startDate, endDate, acctype);
         }
 
         protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string startDate = txtStartDate.Text;
-            string endDate = txtEndDate.Text;
-            lblReportType.Text = "Date Report";
-            getExps(startDate, endDate);
+          
         }
     }
 }
