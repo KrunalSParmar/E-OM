@@ -38,6 +38,7 @@ namespace OnlinExpenseManager
                 ex.ExpAmount = Convert.ToDouble(txtAmount.Text);
                 ex.UserID = UserName;
                 ex.Date = Convert.ToDateTime(DateTime.Today);
+                ex.AccountType = ddlAccountType.SelectedValue;
                 
                 //Reduce expense amount from equivalent User account
                 if(ddlAccountType.SelectedValue == "Credit")

@@ -70,5 +70,13 @@ namespace OnlinExpenseManager
 
             getExps(startDate, endDate);
         }
+
+        protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string startDate = txtStartDate.Text;
+            string endDate = txtEndDate.Text;
+            lblReportType.Text = "Date Report";
+            getExps(startDate, endDate);
+        }
     }
 }

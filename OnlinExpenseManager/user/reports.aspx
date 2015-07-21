@@ -14,6 +14,15 @@
         <asp:TextBox ID="txtEndDate" runat="server" TextMode="Date"></asp:TextBox>
         <asp:Button ID="btngo" runat="server" OnClick="btnGo_Click" Text="GO" />
     </div>
+    <!-- Drop Down to filter Report by Account type-->
+    <div class="bg-info">
+        <label>Select account type.: </label>
+        <asp:DropDownList ID="ddlAccountType" runat="server" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged">
+            <asp:ListItem Text="Credit" Value="Credit"></asp:ListItem>
+            <asp:ListItem Text="Debit" Value="Debit"></asp:ListItem>
+            <asp:ListItem Text="All Expense" Value="All Expense"></asp:ListItem>
+        </asp:DropDownList>
+    </div>
     <!-- Grid to Display Report -->
     <div>
         <h1>Report:<asp:Label ID="lblReportType" runat="server"></asp:Label></h1>
