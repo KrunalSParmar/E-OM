@@ -4,6 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+//Add reference for PDF export
+using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using iTextSharp.text;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+
 //ER Refrences
 using OnlinExpenseManager.Models;
 using System.Web.ModelBinding;
@@ -14,7 +25,11 @@ namespace OnlinExpenseManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            getExps(null, null, ddlAccountType.SelectedValue);
+            lblWelcome.Text = (string)(Session["Name"]);
+            if (!IsPostBack)
+            {
+                this.getExps(null, null, ddlAccountType.SelectedValue);
+            }
         }
 
 
@@ -80,10 +95,67 @@ namespace OnlinExpenseManager
 
             getExps(startDate, endDate, acctype);
         }
+        protected void grdExpense_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            //set the new page #
+            grdExpense.PageIndex = e.NewPageIndex;
+            string startDate = txtStartDate.Text;
+            string endDate = txtEndDate.Text;
+            string acctype;
+            if (ddlAccountType.SelectedValue == "All Expense")
+            {
+                acctype = "";
+            }
+            else
+            {
+                acctype = ddlAccountType.SelectedValue;
+            }
+            lblReportType.Text = "Date Report";
+
+            getExps(startDate, endDate, acctype);
+        }
+
+        protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //set the page size
+            grdExpense.PageSize = Convert.ToInt32(ddlPageSize.SelectedValue);
+            string startDate = txtStartDate.Text;
+            string endDate = txtEndDate.Text;
+            string acctype;
+            if (ddlAccountType.SelectedValue == "All Expense")
+            {
+                acctype = "";
+            }
+            else
+            {
+                acctype = ddlAccountType.SelectedValue;
+            }
+            lblReportType.Text = "Date Report";
+
+            getExps(startDate, endDate, acctype);
+        }
 
         protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
+        }
+
+        protected void ExportToPDF(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition",
+            "attachment;filename=ExpenseAccountExport.doc");
+            Response.Charset = "";
+            Response.ContentType = "application/vnd.ms-word ";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            grdExpense.AllowPaging = false;
+            grdExpense.DataBind();
+            grdExpense.RenderControl(hw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
         }
     }
 }

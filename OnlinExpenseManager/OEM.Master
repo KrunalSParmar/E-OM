@@ -36,7 +36,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
-    <footer class="alert alert-info">
+    <footer class="panel-footer navbar-fixed-bottom text-center">
         @2015 - E-OM - Online Expense Manager
     </footer>
     <!-- Latest compiled and minified JavaScript -->

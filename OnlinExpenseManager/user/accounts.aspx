@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Welcome<asp:Label ID="lblWelcome" runat="server"></asp:Label></h1>
+    <h1 class="label-primary">Welcome<asp:Label ID="lblWelcome" runat="server"></asp:Label></h1>
     <h3>You can update your Account here and check available balance in your accounts</h3>
     <div class="badge" title="Account Info.">
         <h4 class="">
