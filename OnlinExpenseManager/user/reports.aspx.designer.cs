@@ -13,39 +13,57 @@ namespace OnlinExpenseManager {
     public partial class reports {
         
         /// <summary>
-        /// txtfromdate control.
+        /// txtStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtfromdate;
+        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
         
         /// <summary>
-        /// txtenddate control.
+        /// txtEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtenddate;
+        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
         
         /// <summary>
-        /// btnGo control.
+        /// btngo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGo;
+        protected global::System.Web.UI.WebControls.Button btngo;
         
         /// <summary>
-        /// GridExpense control.
+        /// lblReportType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridExpense;
+        protected global::System.Web.UI.WebControls.Label lblReportType;
+        
+        /// <summary>
+        /// grdExpense control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdExpense;
+        
+        /// <summary>
+        /// lblNoDataGrd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoDataGrd;
     }
 }

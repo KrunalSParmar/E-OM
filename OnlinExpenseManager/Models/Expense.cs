@@ -20,6 +20,7 @@ namespace OnlinExpenseManager.Models
         public Nullable<int> AccountID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<double> ExpAmount { get; set; }
+        public string AccountType { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual User User { get; set; }

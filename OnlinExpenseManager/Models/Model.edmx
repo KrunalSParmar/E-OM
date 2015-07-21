@@ -87,6 +87,7 @@
           <Property Name="AccountID" Type="int" />
           <Property Name="UserID" Type="int" />
           <Property Name="ExpAmount" Type="float" />
+          <Property Name="AccountType" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -256,6 +257,7 @@
           <Property Name="ExpAmount" Type="Double" />
           <NavigationProperty Name="Account" Relationship="Self.FK_Expense_ToTable" FromRole="Expense" ToRole="Account" />
           <NavigationProperty Name="User" Relationship="Self.FK_Expense_ToTable_1" FromRole="Expense" ToRole="Users" />
+          <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -451,6 +453,7 @@
           <EntitySetMapping Name="Expenses">
             <EntityTypeMapping TypeName="ExpMgmtModel.Expense">
               <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
                 <ScalarProperty Name="ExpID" ColumnName="ExpID" />
                 <ScalarProperty Name="ExpType" ColumnName="ExpType" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
