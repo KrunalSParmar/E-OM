@@ -197,9 +197,6 @@
     <Compile Include="Models\AspNetUserLogin.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Expense.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

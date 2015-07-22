@@ -11,7 +11,6 @@
         <AssociationConnector Association="ExpMgmtModel.FK_Account_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="ExpMgmtModel.FK_Expense_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="ExpMgmtModel.FK_Expense_ToTable_1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ExpMgmtModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="ExpMgmtModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.5" />
         <EntityTypeShape EntityType="ExpMgmtModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="7.625" />
         <EntityTypeShape EntityType="ExpMgmtModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5" />
