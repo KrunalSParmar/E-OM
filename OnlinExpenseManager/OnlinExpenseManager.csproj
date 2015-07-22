@@ -123,6 +123,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\oem-assignment2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
