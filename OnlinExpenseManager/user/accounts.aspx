@@ -29,4 +29,7 @@
         <asp:Button ID="btnLogin" runat="server" Text="Update Account" CssClass="btn btn-primary"
             OnClick="btnExpense_Click" />
     </div>
+    <div class="hidden">
+        <asp:TextBox ID="ErrorMsgTextBox" runat="server" Visible="false"></asp:TextBox>
+    </div>
 </asp:Content>

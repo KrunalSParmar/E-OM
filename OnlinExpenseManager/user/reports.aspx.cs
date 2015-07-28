@@ -35,45 +35,52 @@ namespace OnlinExpenseManager
 
         private void getExps(string startdate, string enddate, string acctype)
         {
-
-            Int32 Uid = (Int32)(Session["UserName"]);
-            using (ExpMgmtEntities db = new ExpMgmtEntities())
+            try
             {
-                Expense ex = new Expense();
 
-                if ((startdate != "") && (enddate != "") && (acctype != ""))
+                Int32 Uid = (Int32)(Session["UserName"]);
+                using (ExpMgmtEntities db = new ExpMgmtEntities())
                 {
-                    DateTime sd = Convert.ToDateTime(startdate);
-                    DateTime ed = Convert.ToDateTime(enddate);
-                    string at = ddlAccountType.SelectedValue;
-                    var Exp = from e in db.Expenses
-                              where e.UserID == Uid && e.Date >= sd && e.Date <= ed && e.AccountType == at
-                              select new { e.ExpID, e.ExpType, e.Date, e.ExpAmount, e.AccountType };
-                    if (Exp != null)
+                    Expense ex = new Expense();
+
+                    if ((startdate != "") && (enddate != "") && (acctype != ""))
                     {
-                        grdExpense.DataSource = Exp.ToList();
-                        grdExpense.DataBind();
+                        DateTime sd = Convert.ToDateTime(startdate);
+                        DateTime ed = Convert.ToDateTime(enddate);
+                        string at = ddlAccountType.SelectedValue;
+                        var Exp = from e in db.Expenses
+                                  where e.UserID == Uid && e.Date >= sd && e.Date <= ed && e.AccountType == at
+                                  select new { e.ExpID, e.ExpType, e.Date, e.ExpAmount, e.AccountType };
+                        if (Exp != null)
+                        {
+                            grdExpense.DataSource = Exp.ToList();
+                            grdExpense.DataBind();
+                        }
+                        else
+                        {
+                            Response.Redirect("/user/expense.aspx");
+                        }
                     }
                     else
                     {
-                        Response.Redirect("/user/expense.aspx");
+                        var Exp = from e in db.Expenses
+                                  where e.UserID == Uid
+                                  select new { e.ExpID, e.ExpType, e.Date, e.ExpAmount, e.AccountType };
+                        if (Exp != null)
+                        {
+                            grdExpense.DataSource = Exp.ToList();
+                            grdExpense.DataBind();
+                        }
+                        else
+                        {
+                            Response.Redirect("/user/expense.aspx");
+                        }
                     }
                 }
-                else
-                {
-                    var Exp = from e in db.Expenses
-                              where e.UserID == Uid
-                              select new { e.ExpID, e.ExpType, e.Date, e.ExpAmount, e.AccountType };
-                    if (Exp != null)
-                    {
-                        grdExpense.DataSource = Exp.ToList();
-                        grdExpense.DataBind();
-                    }
-                    else
-                    {
-                        Response.Redirect("/user/expense.aspx");
-                    }
-                }
+            }
+            catch
+            {
+                Server.Transfer("errors.aspx");
             }
         }
 
@@ -156,6 +163,20 @@ namespace OnlinExpenseManager
             Response.Output.Write(sw.ToString());
             Response.Flush();
             Response.End();
+        }
+        private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+
+            // Handle specific exception.
+            if (exc is HttpUnhandledException)
+            {
+                ErrorMsgTextBox.Visible = true;
+                ErrorMsgTextBox.Text = "An error occurred on this page. Please verify your " +
+                "information to resolve the issue.";
+            }
+            // Clear the error from the server.
+            Server.ClearError();
         }
     }
 }

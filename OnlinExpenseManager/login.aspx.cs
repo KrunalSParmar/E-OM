@@ -35,6 +35,7 @@ namespace OnlinExpenseManager
 
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
 
+                string em = txtUsername.Text;
                 //store UserId in session variable from Users table using Email
                 using (ExpMgmtEntities db = new ExpMgmtEntities())
                 {
@@ -48,7 +49,7 @@ namespace OnlinExpenseManager
                      Session["UserName"] = uid;
                      Session["Name"] = name;
                 }
-                
+   
                 Response.Redirect("/user/expense.aspx");
             }
             else
@@ -56,5 +57,21 @@ namespace OnlinExpenseManager
                 lblStatus.Text = "Invalid username or password.";
             }
         }
+         private void Page_Error(object sender, EventArgs e)
+        {
+            Exception exc = Server.GetLastError();
+
+            // Handle specific exception.
+            if (exc is HttpUnhandledException)
+            {
+                ErrorMsgTextBox.Visible = true;
+                ErrorMsgTextBox.Text = "An error occurred on this page. Please verify your " +
+                "information to resolve the issue.";
+            }
+            // Clear the error from the server.
+            Server.ClearError();
+        }
     }
+
+
 }

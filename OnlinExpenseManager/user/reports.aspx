@@ -46,9 +46,13 @@
         </asp:GridView>
         <asp:Label ID="lblNoDataGrd" runat="server"></asp:Label>
     </div>
+
     <!--
     <div>
         <asp:Button ID="btnExport" CssClass="btn-success" runat="server" Text="Export To Word" OnClick="ExportToPDF" />
     </div>
     -->
+    <div class="hidden">
+        <asp:TextBox ID="ErrorMsgTextBox" runat="server" Visible="false"></asp:TextBox>
+    </div>
 </asp:Content>
