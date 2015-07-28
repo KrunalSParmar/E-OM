@@ -36,6 +36,5 @@
             </li>
         </ol>
     </div>
-
     <asp:TextBox ID="ErrorMsgTextBox" runat="server" Visible="false"></asp:TextBox>
 </asp:Content>
