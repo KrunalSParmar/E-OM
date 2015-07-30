@@ -40,7 +40,7 @@ namespace OnlinExpenseManager
             }
             catch
             {
-                Server.Transfer("errors.aspx");
+                Server.Transfer("/errors.aspx");
             }
         }
 
@@ -48,7 +48,6 @@ namespace OnlinExpenseManager
         {
             try
             {
-
                 using (ExpMgmtEntities db = new ExpMgmtEntities())
                 {
                     //Retrive Session variable to get UserID
@@ -87,7 +86,7 @@ namespace OnlinExpenseManager
             }
             catch
             {
-                Server.Transfer("errors.aspx");
+                Response.Redirect("/errors.aspx");
             }
         }
         private void Page_Error(object sender, EventArgs e)

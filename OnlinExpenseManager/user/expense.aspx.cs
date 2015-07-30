@@ -68,7 +68,7 @@ namespace OnlinExpenseManager
             }
             catch
             {
-                Server.Transfer("errors.aspx");
+                Response.Redirect("/errors.aspx");
             }
         }
         private void Page_Error(object sender, EventArgs e)

@@ -80,7 +80,7 @@ namespace OnlinExpenseManager
             }
             catch
             {
-                Server.Transfer("errors.aspx");
+                Response.Redirect("/errors.aspx");
             }
         }
 
